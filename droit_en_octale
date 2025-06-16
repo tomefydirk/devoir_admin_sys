@@ -1,0 +1,90 @@
+Les commandes chmod et umask peuvent également ẽtre utilisées avec autre syntaxe :
+
+chmod abc fic où a,b,c sont des chiffres compris entre 0 et 7 ,a représente la somme des chiffres représentant les droits du propriétaire.De memme b représente la somme  des droits du Groupe propriétaite ,et c représente celle des autres utilisateurs.
+
+Par exemple:	rwxr-xr-- correspond à 754 ((4+2+1)(4+1)(4))
+
+Exercice 8 :
+1)Transcrivez le commandes suivantes de la notation classique à la notation octale ou vice-versa.
+
+-chmod u=rx,g=wx,o=r fic
+-chmod uo+w,g-rx fic en sachant que les droits inittiaux de fic soont 711
+-chmod u+x,g=w,p-r fic en sachant que les droits initiaux de fic sont r-r-x--
+
+2)remplacer la liste des commandes suivandes par une commandes unique ayant la meme résulatat.
+-chmod 653 fic
+-chmod u-r,g+w,or fic
+
+
+
+
+Réponse :
+
+1°)
+Droit    Valeur
+r	   4
+w 	   2
+x	   1
+
+a)chmod u=rx,g=wx,o=r fic
+
+u=rx ->4+1 = 5
+g=wx -> 2+1 = 3
+o=r ->4 = 4
+
+Notation octale 534 : chmod 534 fic
+
+b)chmod uo+w ,g-rx fic sachant que les droits intiaux sont 711->rwx--x--x
+Départ :
+u = rwx
+g = --x
+o= --x
+
+Apppliquer :
+u+w -> déjà présent (w déjà là), inchangé
+o+w ->--x devient -wx
+g-rx -> rtire r et x -> devient ---
+
+u=rwx ->7
+g=--- ->0
+0=-wx ->3
+
+Notaino octale 703 : chmod 703 fic
+
+c)chmod u+x,g=w,o-r fic sachant que les droits initiaux sont r--r-x-- soit :
+Initial:
+u = r -> 4
+g = r-x -> 5
+o = --- -> 0
+
+Appliquer :
+u+x -> r-- devient r-x = 5
+g=w -> seul w =2
+o-r -> rien à enlever car déja aucun droit
+
+Notaino octale 520 : chmod 520 fic
+
+2°)
+chmod 643 fic 
+chmod u-r,g+w,o+r fic 
+
+
+ÉTAPE 1: chmod 653 fic
+C'est :
+u = 6 = rw-
+g = 5 = r-x
+o = 3 = -wx
+
+Droits initiaux : rw-r-x-wx
+
+ÉTAPE 2 : On applique chmod u-r,g+w,o+r
+u-r :retire lecture ->rw- ->devient -w- = 2
+g+w : déjà r-x,donc rwx = 7
+o+r : -wx -> devient rwx = 7
+
+Résultat final :
+u = -w- -> 2
+g = rwx -> 7
+o = rwx -> 7
+
+Commande équivalente : chmod 277 fic
