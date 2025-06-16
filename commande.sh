@@ -19,6 +19,18 @@ mkdir test
 touch test/exclu
 
 
-#2)
+#2)Définir des  permissions spécifique :
+		#Première étape créer les user de Bob et Alice (j'utilise fedora) :
+
+			#crée seulement les utilisateurs
+			sudo useradd Bob
+			sudo useradd Alice
+
+			#definir les mots de passes
+			sudo passwd Bob
+			sudo passwd Alice
+
+
+
 
 
