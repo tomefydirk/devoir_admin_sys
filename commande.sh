@@ -30,6 +30,47 @@ touch test/exclu
 			sudo passwd Bob
 			sudo passwd Alice
 
+			#Rappel commande pour se connecter avoir Bob et Alice:
+			su Bob
+			su Alice
+
+			#Bob@fedora:~$ mkdir test
+			#Bob@fedora:~$ touch exlu
+
+			#Création du groupe IS1:
+			groupadd IS1
+
+			#Insérer Bob et Alice dans IS1 :
+			usermod -aG IS1 Bob   # -a :append -G :group
+			usermod -aG IS1 Alice
+
+			#Définir les propriétaire du groupe :
+			sudo chown alice:IS1 exclu      # Alice est proprio, groupe = IS1
+			sudo chown bob:IS1 ~/test       # Bob est proprio du dossier test
+
+#lister les utilisateurs:
+ls /home | awk '{print $1}'
+
+chmod 040 exclu                 # Lecture pour le groupe uniquement
+chmod u+w exclu                 # Écriture pour Alice (propriétaire)
+
+#Definition des propriétaires :
+sudo chown Alice:IS1 /home/Bob/test/exclu # Alice est proprio, groupe = IS1
+sudo chown Bob:IS1 /home/Bob/test # Bob est proprio du dossier test
+
+# Bob n’a aucun droit sur `exclu`
+sudo setfacl -m u:bob:0 /home/Bob/test/exclu
+
+# Seul le proprio (Bob) peut créer de nouveaux fichier dans test
+su Bob
+chmod 755 ~/test
+
+
+
+
+
+
+
 
 
 
