@@ -7,7 +7,7 @@ chmod 640 essai
 ssh mon_user@ip
 
 #3)Essayer d’accéder aux répertoires d'autres étudiants Listez les répertoires des autres : 
-ssh autre_use@ip
+ssh autre_user@ip
 
 #Exo6:
 
