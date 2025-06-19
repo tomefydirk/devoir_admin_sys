@@ -37,12 +37,45 @@ scp -r /chemin/de/mon_fichier utilisateur@ip:/chemin/destination/
 
 
 
-    #COMMANDES ACL IMPORTANT :
-            
+#4)COMMANDES ACL IMPORTANT :
+
+        #obtenir votre ACL par rapport à un fichier :
+            getfacl fichier
+
+            #exemple de résultat :
+                #{
+            # file: test/essai
+            # owner: tomefy
+            # group: tomefy
+            #user::rwx
+            #group::---
+            #other::---
+                #}
+
+        #Modifier les droits d'un utilisateurs :
+            setfacl -m u:utilisateur:rw fichier
+        
+        #Modifier les droits d'un groupe :
+            setfacl -m g:groupe:rw fichier
+        
+        #supprimer l'ACL d'un utilisateur :
+            setfacl -x u:utilisateur fichier
+        
+        # ACL par défaut (pour les dossiers):
+            setfacl -d -m u:utilisateur:rw dossier
+
+        #Autre options :
+                setfacl -R -m u:utilisateur:rw dossier #(Applique récursivement les ACL à tous les fichiers et sous-dossiers)
+
+                setfacl -m o::--- fichier #(Retire tous les droits aux "autres" utilisateurs).
 
 
 
 
+#explication des format pour setfacl:
+    #on a setfactl -[option] [u:(pour user) ou g:(group)] :[nom du groupe ou de l'user] : [ces droits] [fichier ou dossier choisi]
 
-
-
+#explication des options:
+    #-m :mask définie les droits
+    #-x :retire les droits
+    #-d :default (droits par défaut)
