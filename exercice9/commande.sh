@@ -3,7 +3,14 @@
 
 #1)Transferer des répertoire et des fichier:
 
+    #Copier un fichier vers une machine distante :
+scp /chemin/de/mon_fichier utilisateur@ip:/chemin/destination/
 
+    #copier un fichier depuis une machine distant :
+scp utilisateur@ip:/chemin/de/mon_fichier /chemin/local/
+
+    #Pour un dossier entier :(-r : récursive)
+scp -r /chemin/de/mon_fichier utilisateur@ip:/chemin/destination/
 
 #2)essayer de supprimer le repertoire voisin vous meme.
 
@@ -31,7 +38,7 @@
 
 
     #COMMANDES ACL IMPORTANT :
-                        
+            
 
 
 
