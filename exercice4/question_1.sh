@@ -19,10 +19,18 @@ chmod u-r .
 ls -l ../ | grep test 
 
 #lister le repertoire:
-ls -l        #(ls: impossible d'ouvrir le répertoire '.': Permission non accordée)
+ls -l 
+
+    #resultat:(
+        #ls: impossible d'ouvrir le répertoire '.': Permission non accordée
+    #)
 
 #executer ou afficher le contenu du fichier essai :
-cat ./essai #Résultat :(ceci se trouve à l'intérieur de test)
+cat ./essai 
+
+    #Résultat :(
+        #ceci se trouve à l'intérieur de test
+    #)
 
 #DEDUCTION :
     #-droit en lecture pour le dossier = lecture des informations (info par défaut de ls) sur les fichiers ou dossier qui s'y trouve
