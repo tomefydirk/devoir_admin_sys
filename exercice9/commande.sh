@@ -79,3 +79,4 @@ scp -r /chemin/de/mon_fichier utilisateur@ip:/chemin/destination/
     #-m :mask définie les droits
     #-x :retire les droits
     #-d :default (droits par défaut)
+    #-R :recursive
