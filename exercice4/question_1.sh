@@ -6,7 +6,7 @@
     cd ./test
 
     #creation des fichier valy et essai dans test :
-    echo "ceci se trouve à l'intérieur de test" >> valy.txt
+    echo "ceci se trouve à l'intérieur de test" >> valy.txt 
     echo "ceci se trouve à l'intérieur de test" >> essai
     #Note : nos commandes s'excute depuis test et non depuis home!!
 
@@ -36,3 +36,5 @@ chmod u+r .
                 
 #voir les droit en lecture :
 ls -l ../ | grep test 
+
+                #REMARQUE : LE FICHIER VALY NE FAIT PAS PARTIE DU SUJET MAIS CELA EST PLUS UTILE
