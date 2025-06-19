@@ -1,0 +1,1 @@
+#commande sur umask (*à faire!!)
